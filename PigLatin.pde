@@ -7,15 +7,38 @@ public void setup() {
 	  System.out.println(pigLatin(lines[i]));
 	}
 }
+
+
+
+
 public void draw()
 {
+	// no use
 }
-public int findFirstVowel(String sWord)
+
+
+
+public int findFirstVowel(String word)
 //precondition: sWord is a valid String of length greater than 0.
 //postcondition: returns the position of the first vowel in sWord.  If there are no vowels, returns -1
 {
-	return -1;
+  
+  String vowels = "aeiou";
+  
+  for (int i = 0; i < word.length(); i++)
+  {
+    for (int j = 0; j < vowels.length(); j++)
+    {
+      if ((word.substring(i, i+1)).equals(vowels.substring(j, j+1)))
+        return i;
+    }
+  }
+  
+  return -1;
 }
+
+
+
 
 public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
@@ -24,6 +47,14 @@ public String pigLatin(String sWord)
 	if(findFirstVowel(sWord) == -1)
 	{
 		return sWord + "ay";
+	}
+	else if (findFirstVowel(sWord) == 0)
+	{
+		return sWord + "way";
+	}
+	else if ((sWord.substring(0,2)).equals("qu"))
+	{
+		sWord.
 	}
 	else
 	{
